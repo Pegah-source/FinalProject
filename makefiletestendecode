@@ -1,0 +1,28 @@
+libs = -ljansson
+
+all: runner runnerencode
+ 
+runner: runner.o
+	cc -g -o runner runner.o -ljansson
+
+runnerencode: runnerencode.o
+	cc -g -o runnerencode runnerencode.o -ljansson
+	
+decode.o: decode.c
+	cc -c -Wall -g decode.c
+
+encode.o: encode.c
+	cc -c -Wall -g encode.c
+
+runner.o: runner.c decode.h decode.c
+	cc -c -Wall -g runner.c
+	cc -c -Wall -g decode.h 
+	cc -c -Wall -g decode.c
+	
+runnerencode.o: runnerencode.c encode.h encode.c
+	cc -c -Wall -g runnerencode.c
+	cc -c -Wall -g encode.h 
+	cc -c -Wall -g encode.c
+clean:
+	rm runner runner.o decode.o
+	rm runnerencode runnerencode.o encode.o

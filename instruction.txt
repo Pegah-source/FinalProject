@@ -1,0 +1,7 @@
+firsy just run the makefile and then:
+
+first we need to encode a message and here this message is 0 1 2 3 and is fixed in the runnerencode.c, you can change it for test => run runnerencode
+the result of encoding would be visible in message.txt
+
+then it's time to decode what is in the message.txt and for this we run runner'
+the result is visible in decoded.txt
